@@ -1,5 +1,5 @@
 
-//GEOG 572 Lab 4
+//GEOG 572 Lab 5
 // Mackenzie Karnstein
 
 //Note: ChatGTP was used to guide code development/editing [including for explaining javascript and Leaflet logistics, editing, and troubleshooting.]
@@ -7,13 +7,13 @@
 function jsAjax(){
     //use Fetch to retrieve data
     
-    fetch('FarmsRanch.json')
+    fetch('Watershed_Council.geojson')
         .then(conversion) //convert data to usable form
         .then(callback) //send retrieved data to a callback function
     };
 
 function add_second_layer(){
-    fetch('Seafood.json')
+    fetch('Dam_Facilities.geojson')
         .then(conversion1)
         .then(callback1)    
     };
