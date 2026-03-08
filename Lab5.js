@@ -23,6 +23,17 @@ var map;
 var geojson;
 var geojson_2;
 
+function style_dam(feature) {
+    return {
+        radius:5,
+        fillColor: '#102c18',
+        fillOpacity: 1,
+        weight: 2,
+        opacity: 1,
+        color: '#606260',
+        dashArray: '3'
+    };
+}
 //define conversion function
 function conversion(response){
   //convert data to usable form
@@ -59,7 +70,11 @@ function callback1(response_second2){
     console.log(response_second2);
 
     //Add second set of features to map
-     geojson_2 = L.geoJson(response_second2).addTo(map);
+     geojson_2 = L.geoJson(response_second2, {
+        pointToLayer: function(feature, latlng){
+            return L.circleMarker(latlng, style_dam(feature));
+        }
+    }).addTo(map);
 
 }
 window.onload = jsAjax;
